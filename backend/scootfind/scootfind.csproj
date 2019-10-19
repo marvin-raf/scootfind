@@ -6,10 +6,21 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\" />
+    <Folder Include="ApiModels\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="$(AspNetCoreAppRuntimeFrameworkVersion)">
+      <IsImplicitlyDefined>true</IsImplicitlyDefined>
+      <PrivateAssets>All</PrivateAssets>
+      <Publish>true</Publish>
+    </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Services\ScooterService.cs" />
+    <Compile Remove="Services\IScooterService.cs" />
+  </ItemGroup>
 </Project>
