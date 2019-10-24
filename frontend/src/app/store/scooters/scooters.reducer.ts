@@ -17,7 +17,7 @@ export const initialState: ScootersState = {
 const scootersReducer = createReducer(
   initialState,
   on(ScootersActions.getScootersLoad, state => ({...state, isLoading: true})),
-  on(ScootersActions.getScootersSuccess, state => ({...state, isLoading: false})),
+  on(ScootersActions.getScootersSuccess, (state, { scooters }) => ({...state, isLoading: false, scooters})),
   on(ScootersActions.getScootersError, (state, {error}) => ({...state, error})),
 );
 

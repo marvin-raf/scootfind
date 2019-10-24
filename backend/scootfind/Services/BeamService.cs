@@ -25,7 +25,7 @@ namespace scootfind.Services
 
             foreach (var unformattedScooter in unformattedScooters)
             {
-                scooters.Add(new Scooter(unformattedScooter.bestLocation.coordinates[1], unformattedScooter.bestLocation.coordinates[0]));
+                scooters.Add(new BeamScooter(unformattedScooter.bestLocation.coordinates[1], unformattedScooter.bestLocation.coordinates[0]));
             }
 
             return scooters;
@@ -34,7 +34,6 @@ namespace scootfind.Services
         private async Task<BeamApiResponse> SendRequest(string latitude, string longitude)
         {
             string fullBeamUrl = getBeamUrl(latitude, longitude);
-            Console.WriteLine(fullBeamUrl);
             var request = new HttpRequestMessage(HttpMethod.Get, fullBeamUrl);
             request.Headers.Add("latitude", latitude);
             request.Headers.Add("longitude", longitude);

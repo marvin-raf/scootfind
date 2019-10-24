@@ -11,6 +11,6 @@ export class ScooterService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<Scooter[]>(`${environment.apiUrl}/api/scooters`);
+    return this.http.get<Scooter[]>(`${environment.apiUrl}/api/scooters?latitude=-43.50414198889369&longitude=172.61012022916051`);
   }
 }

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 import { ScooterService } from './scooter.service';
-import { ScooterAction } from '../store/scooters/scooters.actions';
+import { ScooterAction, getScootersSuccess } from '../store/scooters/scooters.actions';
 
 @Injectable()
 export class ScootersEffects {
@@ -12,7 +12,7 @@ export class ScootersEffects {
       ofType(ScooterAction.GetScootersLoad),
       mergeMap(() =>
         this.scooterService.getAll().pipe(
-          map(scooters => ({ type: ScooterAction.GetScootersSuccess, payload: scooters })),
+          map(scooters => getScootersSuccess({scooters})),
           catchError(() => EMPTY),
         ),
       ),

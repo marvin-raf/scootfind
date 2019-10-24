@@ -22,7 +22,7 @@ namespace scootfind.Services
             
             foreach (var unformattedScooter in unformattedScooters)
             {
-                scooters.Add(new Scooter(unformattedScooter.attributes.latitude, unformattedScooter.attributes.longitude));
+                scooters.Add(new LimeScooter(unformattedScooter.attributes.latitude, unformattedScooter.attributes.longitude));
             }
 
             return scooters;

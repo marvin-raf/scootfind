@@ -17,7 +17,7 @@ namespace scootfind.ApiModels
         public List<double> coordinates { get; set; }
     }
 
-    public class BeamScooter
+    public class UnformattedBeamScooter
     {
         public int id { get; set; }
         public int status { get; set; }
@@ -39,7 +39,7 @@ namespace scootfind.ApiModels
 
     public class BeamData
     {
-        public List<BeamScooter> scooters { get; set; }
+        public List<UnformattedBeamScooter> scooters { get; set; }
         public bool isRideableTime { get; set; }
     }
 

@@ -15,7 +15,7 @@ export const getScootersLoad = createAction(
 
 export const getScootersSuccess = createAction(
   ScooterAction.GetScootersSuccess,
-  props<{scooter: Scooter[]}>()
+  props<{scooters: Scooter[]}>()
 );
 
 export const getScootersError = createAction(

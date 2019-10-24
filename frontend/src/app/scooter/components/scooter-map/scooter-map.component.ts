@@ -17,5 +17,6 @@ export class ScooterMapComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch({type: ScooterAction.GetScootersLoad});
+    this.scooters$.subscribe(scooter => console.log("The answer was: " + scooter));
   }
 }

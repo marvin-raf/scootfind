@@ -1,17 +1,22 @@
 ﻿using System;
+using Newtonsoft.Json;
+
 namespace scootfind.Models
 {
     public class Scooter
     {
 
-        public double lat { get; set; }
-        public double lon { get; set; }
+        [JsonProperty]
+        private Coordinate coordinate { get; set; }
+
+        [JsonProperty]
+        private String type { get; set; }
         
         
-        public Scooter(double lat, double lon)
+        public Scooter(double lat, double lon, String type)
         {
-            this.lat = lat;
-            this.lon = lon;
+            coordinate = new Coordinate(lat, lon);
+            this.type = type;
         }
     }
 }
