@@ -4,14 +4,15 @@ import { map, mergeMap, catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 import { ScooterService } from './scooter.service';
 import { ScooterAction } from '../store/scooters/scooters.actions';
+
 @Injectable()
-export class MovieEffects {
-  loadMovies$ = createEffect(() =>
+export class ScootersEffects {
+  loadScooters$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ScooterAction.GetScootersLoad),
       mergeMap(() =>
         this.scooterService.getAll().pipe(
-          map(movies => ({ type: ScooterAction.GetScootersSuccess, payload: movies })),
+          map(scooters => ({ type: ScooterAction.GetScootersSuccess, payload: scooters })),
           catchError(() => EMPTY),
         ),
       ),

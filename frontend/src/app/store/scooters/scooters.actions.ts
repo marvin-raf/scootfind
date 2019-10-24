@@ -9,7 +9,7 @@ export enum ScooterAction {
 }
 
 export const getScootersLoad = createAction(
-  ScooterAction.GetScootersSuccess,
+  ScooterAction.GetScootersLoad,
   props<{coordinate: Coordinate}>()
 );
 
