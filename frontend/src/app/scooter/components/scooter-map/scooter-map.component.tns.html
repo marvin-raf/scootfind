@@ -1,1 +1,6 @@
-<Button text="scooter-map works!" class="btn btn-primary"></Button>
+<ContentView height="100%" width="100%">
+  <Mapbox accessToken="pk.eyJ1IjoicmFmYWVsZ29lc21hbm4iLCJhIjoiY2syNm9ndWs1MzNydDNkbXQ2eGJqanF3NyJ9.4u0Y4JWKl17VYkZVk8FOIw" mapStyle="traffic_day" latitude="50.467735" longitude="13.427718" hideCompass="true"
+    zoomLevel="18" showUserLocation="true" disableZoom="false" disableRotation="false" disableScroll="false"
+    disableTilt="false" (mapReady)="onMapReady($event)">
+  </Mapbox>
+</ContentView>

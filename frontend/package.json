@@ -1,7 +1,10 @@
 {
   "name": "frontend",
   "nativescript": {
-    "id": "org.nativescript.frontend"
+    "id": "org.nativescript.frontend",
+    "tns-ios": {
+      "version": "6.1.1"
+    }
   },
   "version": "0.0.0",
   "scripts": {
@@ -19,19 +22,25 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.0.1",
+    "@angular/cdk": "~8.2.3",
     "@angular/common": "~8.0.1",
     "@angular/compiler": "~8.0.1",
     "@angular/core": "~8.0.1",
     "@angular/forms": "~8.0.1",
     "@angular/http": "~8.0.0-beta.10",
+    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.0.1",
     "@angular/platform-browser-dynamic": "~8.0.1",
     "@angular/router": "~8.0.1",
     "@ngrx/effects": "^8.4.0",
     "@ngrx/store": "^8.4.0",
     "core-js": "^2.5.4",
+    "hammerjs": "^2.0.8",
+    "mapbox-gl": "^0.54.0",
     "nativescript-angular": "~8.0.1",
+    "nativescript-mapbox": "^4.4.1",
     "nativescript-theme-core": "~1.0.4",
+    "ngx-mapbox-gl": "^4.1.0",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.5.0",
     "tns-core-modules": "~6.0.0",
@@ -45,6 +54,7 @@
     "@nativescript/tslint-rules": "~0.0.2",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/mapbox-gl": "^0.51.10",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.2.0",
     "jasmine-core": "~3.4.0",

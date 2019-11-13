@@ -4,6 +4,8 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppRoutingModule } from '@src/app/app-routing.module';
 import { AppComponent } from '@src/app/app.component';
 import { HomeComponent } from '@src/app/home/home.component';
+import { ScooterModule } from './scooter/scooter.module.tns';
+import { HttpClientModule } from '@angular/common/http';
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -20,6 +22,8 @@ import { HomeComponent } from '@src/app/home/home.component';
   imports: [
     NativeScriptModule,
     AppRoutingModule,
+    ScooterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

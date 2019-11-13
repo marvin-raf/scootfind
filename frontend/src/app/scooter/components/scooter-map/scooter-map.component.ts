@@ -17,6 +17,35 @@ export class ScooterMapComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch({type: ScooterAction.GetScootersLoad});
-    this.scooters$.subscribe(scooter => console.log("The answer was: " + scooter));
+    console.log('I have been initted');
   }
+
+  onMapReady(args) {
+    console.log("The map is ready");
+    this.scooters$.subscribe(scooters => {
+      console.log("I have received a subscribed event");
+      console.log(scooters);
+      for (const scooter of scooters) {
+        console.log(scooter.coordinate);
+        args.map.addMarkers([
+        {
+          lat: scooter.coordinate.lat,
+          lng: scooter.coordinate.lon,
+          title: 'One-line title here',
+          subtitle: 'Really really nice location',
+        }]);
+      }
+    });
+  }
+
+  getScooterLogo(scooter: Scooter) {
+    switch (scooter.type) {
+      case 'Lime':
+        return 'assets/img/lime-logo.png';
+      case 'Beam':
+        return 'assets/img/beam-logo.png';
+    }
+  }
+
 }
+

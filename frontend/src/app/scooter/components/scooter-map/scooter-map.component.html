@@ -3,4 +3,20 @@
   <div *ngFor="let scooter of scooters$ | async">
     {{ scooter }}
   </div>
+
+<div id="map">
+  <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[9]" [center]="[-74.50, 40]">
+    <mgl-marker *ngFor="let scooter of scooters$ | async" [lngLat]="[scooter.coordinate.lon, scooter.coordinate.lat]" >
+      <div class="marker">
+        <img [src]="getScooterLogo(scooter)" class="scooter-icon" />
+      </div>
+  </mgl-marker>
+
+
+  <app-user-marker></app-user-marker>
+
+</mgl-map>
+</div>
+
+
 </div>

@@ -65,7 +65,7 @@ namespace scootfind
             }
 
             app.UseCors("MyPolicy");
-            app.UseHttpsRedirection();
+            
             app.UseMvc();
         }
     }

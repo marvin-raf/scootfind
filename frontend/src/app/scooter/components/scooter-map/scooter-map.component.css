@@ -1,0 +1,14 @@
+mgl-map {
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  width: 500px;
+  height: 500px;
+}
+
+.scooter-icon {
+  width: 15px;
+  height: 15px;
+}
