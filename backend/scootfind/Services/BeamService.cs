@@ -12,15 +12,12 @@ namespace scootfind.Services
 {
     public class BeamService : IBeamService
     {
-
         private readonly string beamUrl = "https://gateway.ridebeam.com/api/vehicles/scooter/latlong";
 
         public async Task<List<Scooter>> GetScooters(string latitude, string longitude)
         {
             var response = await SendRequest(latitude, longitude);
-            
             var unformattedScooters = response.data.scooters;
-
             var scooters = new List<Scooter>();
 
             foreach (var unformattedScooter in unformattedScooters)

@@ -1,1 +1,5 @@
-<p>user-marker</p>
+<mgl-marker *ngIf="(userLocation$ | async).lat" [lngLat]="[(userLocation$ | async).lon, (userLocation$ | async).lat]">
+  <div class="pulse-holder">
+    <span class="pulse-marker"></span>
+  </div>
+</mgl-marker>

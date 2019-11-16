@@ -23,9 +23,9 @@ export const initialState: ScootersState = {
 const scootersReducer = createReducer(
   initialState,
   on(ScootersActions.getScootersLoad, state => ({...state, isLoading: true})),
-  on(ScootersActions.getScootersSuccess, (state, { scooters }) => { console.log(scooters); return {...state, isLoading: false, scooters}}),
+  on(ScootersActions.getScootersSuccess, (state, { scooters }) => ({...state, isLoading: false, scooters})),
   on(ScootersActions.getScootersError, (state, {error}) => ({...state, error})),
-  on(ScootersActions.changeUserLocation, (state, userLocation) =>  {console.log('it is happening: ' + userLocation); return {...state, userLocation}})
+  on(ScootersActions.changeUserLocation, (state, userLocation) => ({...state, userLocation}))
 );
 
 export function reducer(state: ScootersState | undefined, action: Action) {

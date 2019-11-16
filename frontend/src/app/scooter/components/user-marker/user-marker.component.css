@@ -1,0 +1,46 @@
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.pulse-holder {
+  display: block;
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  border-radius: 100%;
+  background-color: #ff6b6b;
+}
+
+.pulse-holder .pulse-marker {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.pulse-marker:before,
+.pulse-marker:after {
+  content: "";
+  position: absolute;
+  background-color: rgba(238, 82, 83, 0.2);
+  border: 3px dotted rgba(238, 82, 83, 1);
+  border-radius: 100%;
+  animation: pulse 2s ease-out infinite;
+  border-image: initial;
+}
+
+.pulse-marker:after {
+  left: -26px;
+  top: -26px;
+  width: 64px;
+  height: 64px;
+}

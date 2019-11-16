@@ -10,8 +10,7 @@ export enum ScooterAction {
 }
 
 export const getScootersLoad = createAction(
-  ScooterAction.GetScootersLoad,
-  props<{coordinate: Coordinate}>()
+  ScooterAction.GetScootersLoad
 );
 
 export const getScootersSuccess = createAction(
@@ -26,5 +25,5 @@ export const getScootersError = createAction(
 
 export const changeUserLocation = createAction(
   ScooterAction.ChangeUserLocation,
-  props<Partial<Coordinate>>()
-  );
+  props<Coordinate>()
+);

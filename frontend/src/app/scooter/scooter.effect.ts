@@ -11,10 +11,9 @@ export class ScootersEffects {
     this.actions$.pipe(
       ofType(ScooterAction.GetScootersLoad),
       mergeMap(() => {
-        console.log("I am sending the request");
         return this.scooterService.getAll().pipe(
           map(scooters => getScootersSuccess({scooters})),
-          catchError((e) => {console.log("There was an error", e); return EMPTY})
+          catchError((e) => EMPTY)
       );
       }),
     ),

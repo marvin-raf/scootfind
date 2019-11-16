@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { ScooterAction } from '@src/app/store/scooters/scooters.actions';
+import { ScooterAction, getScootersLoad } from '@src/app/store/scooters/scooters.actions';
 import { ScootersState } from '@src/app/store/scooters/scooters.reducer';
 import { Scooter } from '../../scooter.interface';
+import { Coordinate } from '@src/app/shared/interfaces/coordinate.interface';
 
 @Component({
   selector: 'app-scooter-map',
@@ -12,21 +13,17 @@ import { Scooter } from '../../scooter.interface';
 })
 export class ScooterMapComponent implements OnInit {
   scooters$: Observable<Scooter[]> = this.store.select(state => state.scooters.scooters);
+  userLocation$: Observable<Partial<Coordinate>> = this.store.select(state => state.scooters.userLocation);
 
   constructor(private store: Store<{ scooters: ScootersState }>) {}
 
   ngOnInit() {
-    this.store.dispatch({type: ScooterAction.GetScootersLoad});
-    console.log('I have been initted');
+    this.store.dispatch(getScootersLoad());
   }
 
   onMapReady(args) {
-    console.log("The map is ready");
     this.scooters$.subscribe(scooters => {
-      console.log("I have received a subscribed event");
-      console.log(scooters);
       for (const scooter of scooters) {
-        console.log(scooter.coordinate);
         args.map.addMarkers([
         {
           lat: scooter.coordinate.lat,

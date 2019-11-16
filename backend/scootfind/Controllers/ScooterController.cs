@@ -30,18 +30,7 @@ namespace scootfind.Controllers
 
             var scooters = await Task.WhenAll(scooterTasks);
             var flattenedScooters = scooters.SelectMany(currentScooters => currentScooters).ToList();
-            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings();
-            jsonSerializerSettings.TypeNameHandling = TypeNameHandling.All;
-            jsonSerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-            string textJson = JsonConvert.SerializeObject(flattenedScooters, jsonSerializerSettings);
-            var settings = new JsonSerializerSettings()
-            {
-                TypeNameHandling = TypeNameHandling.Objects
-            };
-            var resourceJSon = JsonConvert.SerializeObject(flattenedScooters, settings);
-            
-
-                return flattenedScooters;
+            return flattenedScooters;
         }
     }
 }

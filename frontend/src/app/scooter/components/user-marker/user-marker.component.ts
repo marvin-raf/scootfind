@@ -18,18 +18,53 @@ export class UserMarkerComponent implements OnInit {
 
   ngOnInit() {
     this.updateUserMarker();
-    // setInterval(this.updateUserMarker, this.MARKER_UPDATE_DURATION);
-    this.userLocation$.subscribe(location => 'location is now: ' + location + ' ' + location);
-    this.updateUserMarker();
+    this.watchUserLocation();
+    this.userLocation$.subscribe(userLocation => console.log(userLocation));
   }
 
-  updateUserMarker() {
-    navigator.geolocation.getCurrentPosition(position => {
-      console.log('Yo, I made it here');
-      changeUserLocation({
-        lat: Math.random(),
-        lon: Math.random(),
-      });
+  watchUserLocation() {
+    navigator.geolocation.watchPosition(this.positionChanged, this.errorCallback, {
+      enableHighAccuracy: true
     });
+  }
+
+  positionChanged = (position: Position) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    this.store.dispatch(changeUserLocation({
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+    }));
+  }
+
+  updateUserMarker = () => {
+    const navigatorOptions = {
+      enableHighAccuracy: true
+    };
+
+    navigator.geolocation.getCurrentPosition(position => {
+      this.store.dispatch(changeUserLocation({
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      }));
+    }, this.errorCallback, navigatorOptions);
+  }
+
+  errorCallback = () => {
+    console.log("There was an error yeet");
   }
 }
